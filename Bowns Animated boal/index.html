@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ball Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #1e3c72, #2a5298);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 2.5rem;
+        }
+        
+        .scene {
+            position: relative;
+            width: 90%;
+            height: 400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .floor {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 20px;
+            background: linear-gradient(to top, #2c3e50, #34495e);
+        }
+        
+        .ball {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ff5e00, #ff2900);
+            box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.3),
+                        0 0 20px rgba(255, 69, 0, 0.5);
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite cubic-bezier(0.5, 0.05, 0.5, 0.9);
+        }
+        
+        .shadow {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 50%;
+            animation: shadow 2s infinite cubic-bezier(0.5, 0.05, 0.5, 0.9);
+            filter: blur(5px);
+        }
+        
+        @keyframes bounce {
+            0% {
+                top: 0;
+                transform: translateX(-50%) scale(1, 1);
+            }
+            25% {
+                top: 320px;
+                transform: translateX(-50%) scale(1.1, 0.9);
+            }
+            50% {
+                top: 80px;
+                transform: translateX(-50%) scale(1, 1);
+            }
+            75% {
+                top: 320px;
+                transform: translateX(-50%) scale(1.05, 0.95);
+            }
+            85% {
+                top: 240px;
+                transform: translateX(-50%) scale(1, 1);
+            }
+            92% {
+                top: 320px;
+                transform: translateX(-50%) scale(1.02, 0.98);
+            }
+            100% {
+                top: 320px;
+                transform: translateX(-50%) scale(1, 1);
+            }
+        }
+        
+        @keyframes shadow {
+            0% {
+                width: 70px;
+                opacity: 0.2;
+            }
+            25% {
+                width: 100px;
+                opacity: 0.5;
+            }
+            50% {
+                width: 70px;
+                opacity: 0.2;
+            }
+            75% {
+                width: 90px;
+                opacity: 0.4;
+            }
+            85% {
+                width: 70px;
+                opacity: 0.2;
+            }
+            92% {
+                width: 80px;
+                opacity: 0.3;
+            }
+            100% {
+                width: 70px;
+                opacity: 0.2;
+            }
+        }
+        
+        
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .scene {
+                height: 300px;
+            }
+            
+            .ball {
+                width: 50px;
+                height: 50px;
+            }
+            
+            @keyframes bounce {
+                0% {
+                    top: 0;
+                    transform: translateX(-50%) scale(1, 1);
+                }
+                25% {
+                    top: 240px;
+                    transform: translateX(-50%) scale(1.1, 0.9);
+                }
+                50% {
+                    top: 60px;
+                    transform: translateX(-50%) scale(1, 1);
+                }
+                75% {
+                    top: 240px;
+                    transform: translateX(-50%) scale(1.05, 0.95);
+                }
+                85% {
+                    top: 180px;
+                    transform: translateX(-50%) scale(1, 1);
+                }
+                92% {
+                    top: 240px;
+                    transform: translateX(-50%) scale(1.02, 0.98);
+                }
+                100% {
+                    top: 240px;
+                    transform: translateX(-50%) scale(1, 1);
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bouncing Ball Animation</h1>
+        
+        <div class="scene">
+            <div class="ball"></div>
+            <div class="shadow"></div>
+            <div class="floor"></div>
+        </div>
+    </div>
+</body>
+</html>
